@@ -1,0 +1,24 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+@layer base {
+  body {
+    @apply font-sans text-body text-black antialiased;
+  }
+}
+
+@layer utilities {
+  .diagonal-lines {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgb(212 212 212) 8px,
+      rgb(212 212 212) 9px
+    );
+  }
+}

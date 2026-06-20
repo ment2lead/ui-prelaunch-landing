@@ -1,0 +1,161 @@
+{
+  "header": {
+    "logo": "Ment to lead",
+    "nav": {
+      "features": "Features",
+      "team": "Team",
+      "pricing": "Pricing"
+    },
+    "becomeMentor": "Become a Mentor"
+  },
+  "hero": {
+    "title": "Become the leader teams are looking for",
+    "subtitle": "A mentorship platform that connects aspiring leaders with experienced mentors through structured feedback, communication tools, and smart matching.",
+    "cta": "Join as Early Bird"
+  },
+  "problems": {
+    "problem_badge": "The problem",
+    "title": "New leaders often struggle with three things",
+    "description": "Leadership looks simple from the outside, but the reality is far more complex once you’re responsible for people, decisions, and outcomes.",
+    "items": [
+      {
+        "title": "Nobody taught me how to lead",
+        "description": "You were promoted because you were great at your job — not because you were trained to manage people, navigate conflict, or inspire a team."
+      },
+      {
+        "title": "Leadership feels lonely",
+        "description": "Some challenges are difficult to discuss with your manager, your team, or even your friends. You need peers who truly understand the journey."
+      },
+      {
+        "title": "Lack of a feedback",
+        "description": "Without structured feedback and guidance, leadership growth becomes guesswork instead of intentional development."
+      }
+    ],
+    "conclusion": "Ment2Lead gives aspiring and new leaders the guidance, community, and self-awareness tools they need to grow with confidence."
+  },
+  "solutions": {
+    "title": "Four pillars of modern leadership growth",
+    "description": "Ment2Lead builds leadership through structured mentorship, peer support, continuous learning, and self-reflection.",
+    "items": [
+      {
+        "title": "Curated Mentorship",
+        "description": "Learn from experienced leaders who have already navigated similar challenges."
+      },
+      {
+        "title": "Peer Community",
+        "description": "Connect with other leaders to share experiences and learn collaboratively."
+      },
+      {
+        "title": "Continuous Learning",
+        "description": "Access practical insights and leadership resources tailored to your current growth areas."
+      },
+      {
+        "title": "Self-Discovery",
+        "description": "Understand your leadership style, strengths, and development path."
+      }
+    ]
+  },
+  "features": {
+    "title": "Key Features",
+    "description": "Everything you need to support real leadership growth. A practical toolkit that connects people, knowledge, and guidance into one ecosystem.",
+    "items": [
+      {
+        "title": "Communication Tools",
+        "description": "Stay connected with mentors and mentees through built-in messaging, video calls, and session scheduling."
+      },
+      {
+        "title": "Knowledge Base",
+        "description": "Access curated resources, playbooks, and templates to accelerate your leadership development journey."
+      },
+      {
+        "title": "Smart Matching",
+        "description": "Get paired with the right mentor based on your goals, industry, and leadership style preferences."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "earlyBird": {
+      "name": "FREE",
+      "subtitle": "Early Bird",
+      "items": [
+        "Full platform access",
+        "Unlimited mentor sessions",
+        "Knowledge base access",
+        "Smart matching algorithm",
+        "Priority support"
+      ],
+      "cta": "Join as Early Bird"
+    },
+    "standard": {
+      "name": "STANDARD",
+      "subtitle": "In Development",
+      "comingSoon": "Coming Soon",
+      "items": [
+        "Full platform access",
+        "Unlimited mentor sessions",
+        "Knowledge base access",
+        "Smart matching algorithm",
+        "Priority support"
+      ],
+      "cta": "Coming Soon"
+    }
+  },
+  "team": {
+    "title": "Team",
+    "members": [
+      {
+        "name": "Iryna Lebedeva",
+        "role": "CEO & Co-founder",
+        "avatar": "iryna"
+      },
+      {
+        "name": "Olena Nikolaeva",
+        "role": "COO & Co-founder",
+        "avatar": "olena"
+      },
+      {
+        "name": "Sergiy Borodych",
+        "role": "CTO & Co-founder",
+        "avatar": "sergiy"
+      },
+      {
+        "name": "Oksana Bezveniuk",
+        "role": "CMO & Co-founder",
+        "avatar": "oksana"
+      },
+      {
+        "name": "Solomiia Rybchanska",
+        "role": "CDO & Co-founder",
+        "avatar": "solomiia"
+      }
+    ]
+  },
+  "form": {
+    "title": "Request Early Access",
+    "name": "Name",
+    "email": "Email",
+    "goal": "Your Goal",
+    "goalOptions": {
+      "mentor": "Mentor",
+      "learner": "Learner",
+      "both": "Both"
+    },
+    "submit": "Secure My Spot",
+    "success": "Thank you! Your spot has been secured.",
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "goalRequired": "Please select your goal"
+    }
+  },
+  "footer": {
+    "contacts": "Contacts",
+    "email": "hello@menttolead.com",
+    "phone": "+1 (555) 123-4567",
+    "copyright": "© 2026 Ment to Lead. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}
