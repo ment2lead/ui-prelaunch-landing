@@ -1,11 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
-
-function SocialPlaceholder() {
-  return (
-    <div className='size-8 rounded-full border border-neutral-300 bg-neutral-100' />
-  );
-}
+import { FaLinkedinIn } from 'react-icons/fa';
 
 export function Footer() {
   const { t } = useTranslation();
@@ -28,9 +23,15 @@ export function Footer() {
               <span>{t('footer.phone')}</span>
             </div>
             <div className='flex gap-3'>
-              {Array.from({ length: 4 }).map((_, index) => (
-                <SocialPlaceholder key={index} />
-              ))}
+              <a
+                href='https://linkedin.com/company/ment2lead'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='LinkedIn'
+                className='text-neutral-500 transition-colors duration-200 hover:text-[#0A66C2]'
+              >
+                <FaLinkedinIn className='size-6' />
+              </a>
             </div>
           </div>
         </div>

@@ -85,7 +85,7 @@ export function LeadForm() {
         </h2>
 
         {submitted ? (
-          <p className='rounded-sm border border-neutral-200 bg-white px-6 py-8 text-center text-body text-neutral-600'>
+          <p className='rounded-md border border-neutral-200 bg-white px-6 py-8 text-center text-body text-neutral-600'>
             {t('form.success')}
           </p>
         ) : (
@@ -189,6 +189,27 @@ export function LeadForm() {
                 </p>
               )}
             </div>
+
+            <label className='flex items-start gap-3 text-sm text-neutral-600 '>
+              <input type='checkbox' required className='mt-0.5 size-5' />
+              <span className='text-body '>
+                {t('form.i_agree')}{' '}
+                <a
+                  href='/privacy-policy'
+                  className='underline hover:text-neutral-900'
+                >
+                  {t('form.privacy_policy')}
+                </a>{' '}
+                and{' '}
+                <a
+                  href='/terms-of-use'
+                  className='underline hover:text-neutral-900'
+                >
+                  {t('form.terms_of_use')}
+                </a>
+                .
+              </span>
+            </label>
 
             <Button type='submit' variant='primary' fullWidth>
               {t('form.submit')}

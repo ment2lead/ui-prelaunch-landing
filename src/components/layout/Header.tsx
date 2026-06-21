@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import type { Locale } from '../../i18n';
+import logo from '../../assets/img/logo.png';
 
 type HeaderProps = {
   locale: Locale;
@@ -9,6 +11,20 @@ type HeaderProps = {
 
 export function Header({ locale }: HeaderProps) {
   const { t } = useTranslation();
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { threshold: 0, rootMargin: '-80px 0px 0px 0px' },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   const navLinks = [
     { href: '#features', label: t('header.nav.features') },
@@ -17,35 +33,55 @@ export function Header({ locale }: HeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 h-20 border-b border-neutral-200 bg-white">
-      <Container className="flex h-full items-center justify-between">
-        <a href="#" className="text-body font-semibold text-black">
-          {t('header.logo')}
+    <header
+      className={`sticky top-0 z-50 h-20 border-b transition-colors duration-300 ${
+        pastHero
+          ? 'border-[#06737c]/20 bg-white'
+          : 'border-white/20 bg-[#06737c]'
+      }`}
+    >
+      <Container className='flex h-full items-center justify-between'>
+        <a href='#' className='text-body font-semibold'>
+          <h1 className={pastHero ? 'text-[#06737c]' : 'text-white'}>
+            {t('header.logo')}
+          </h1>
+          {/* <img src={logo} alt='Ment to lead' className='h-[20px]' /> */}
         </a>
 
-        <nav className="flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-body text-neutral-600 transition-colors hover:text-black"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2 text-caption">
+        <div className='flex items-center gap-6'>
+          <nav className='flex items-center gap-8'>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-body transition-colors ${
+                  pastHero
+                    ? 'text-[#06737c]/80 hover:text-[#06737c]'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className='flex items-center gap-2 text-caption'>
             {(['en', 'uk'] as Locale[]).map((lang, index) => (
-              <span key={lang} className="flex items-center gap-2">
-                {index > 0 && <span className="text-neutral-300">|</span>}
+              <span key={lang} className='flex items-center gap-2'>
+                {index > 0 && (
+                  <span
+                    className={pastHero ? 'text-[#06737c]/30' : 'text-white/30'}
+                  >
+                    |
+                  </span>
+                )}
                 <a
-                  href={`/${lang}`}
+                  href={`${import.meta.env.BASE_URL}${lang}`}
                   className={
                     locale === lang
-                      ? 'font-semibold text-black underline underline-offset-4'
-                      : 'text-neutral-500 hover:text-black'
+                      ? `font-semibold underline underline-offset-4 ${pastHero ? 'text-[#06737c]' : 'text-white'}`
+                      : pastHero
+                        ? 'text-[#06737c]/70 hover:text-[#06737c]'
+                        : 'text-white/70 hover:text-white'
                   }
                 >
                   {lang.toUpperCase()}
@@ -53,8 +89,16 @@ export function Header({ locale }: HeaderProps) {
               </span>
             ))}
           </div>
-
-          <Button variant="outline">{t('header.becomeMentor')}</Button>
+          <Button
+            variant='primary'
+            onClick={() =>
+              document
+                .getElementById('early-access')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+          >
+            {t('hero.cta')}
+          </Button>
         </div>
       </Container>
     </header>

@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "Ment to lead",
+    "logo": "Ment2Lead",
     "nav": {
       "features": "Features",
       "team": "Team",
@@ -9,8 +9,8 @@
     "becomeMentor": "Become a Mentor"
   },
   "hero": {
-    "title": "Become the leader teams are looking for",
-    "subtitle": "A mentorship platform that connects aspiring leaders with experienced mentors through structured feedback, communication tools, and smart matching.",
+    "title": "New to leadership? You don't have to figure it out alone.",
+    "subtitle": "Ment2Lead gives aspiring and new leaders the guidance, community, and self-awareness tools they need to grow with confidence.",
     "cta": "Join as Early Bird"
   },
   "problems": {
@@ -148,7 +148,10 @@
       "emailRequired": "Email is required",
       "emailInvalid": "Please enter a valid email",
       "goalRequired": "Please select your goal"
-    }
+    },
+    "privacy_policy": "Privacy Policy",
+    "terms_of_use": " Terms of Use",
+    "i_agree": "I agree to the"
   },
   "footer": {
     "contacts": "Contacts",

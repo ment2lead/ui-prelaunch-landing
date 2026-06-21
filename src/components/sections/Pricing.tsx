@@ -40,14 +40,14 @@ function PricingCard({
 }) {
   return (
     <div
-      className={`relative rounded-sm bg-white p-10 ${
+      className={`relative rounded-md bg-white p-10 ${
         disabled
           ? 'border border-dotted border-neutral-300 opacity-50'
           : 'border border-neutral-200'
       }`}
     >
       {disabled && tier.comingSoon && (
-        <span className='absolute right-6 top-6 rounded-sm border border-neutral-300 px-3 py-1 text-caption text-neutral-500'>
+        <span className='absolute right-6 top-6 rounded-md border border-neutral-300 px-3 py-1 text-caption text-neutral-500'>
           {tier.comingSoon}
         </span>
       )}

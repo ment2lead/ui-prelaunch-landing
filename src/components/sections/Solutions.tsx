@@ -44,7 +44,7 @@ export function Solutions() {
                 key={solution.title}
                 className='flex flex-col gap-2 items-center text-center '
               >
-                <Icon className='size-10 text-neutral-600' />
+                <Icon className='size-10 text-teal-700' />
 
                 <h3 className='text-h3 font-bold'>{solution.title}</h3>
                 <p className=' text-body text-neutral-600'>

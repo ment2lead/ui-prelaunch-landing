@@ -35,10 +35,10 @@ export function Features() {
           return (
             <div
               key={feature.title}
-              className='rounded-sm border border-neutral-200 bg-white p-8 flex flex-col items-start gap-2'
+              className='rounded-md border border-neutral-200 bg-white p-8 flex flex-col items-start gap-2'
             >
-              <div className='rounded-sm bg-neutral-200'>
-                <Icon className='size-10 p-2 text-neutral-600' />
+              <div className='rounded-md bg-teal-700'>
+                <Icon className='size-10 p-2 text-white' />
               </div>
               <h3 className='text-h3 text-black'>{feature.title}</h3>
               <p className='text-body text-neutral-600'>

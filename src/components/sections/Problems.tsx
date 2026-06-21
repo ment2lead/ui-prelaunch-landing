@@ -29,8 +29,7 @@ export function Problems() {
     <Section variant='muted'>
       <div className='grid grid-cols-12 gap-24 items-center'>
         <div className='col-span-7 flex flex-col items-start gap-2'>
-          <span className='text-body font-medium text-black border rounded-xl px-2 py-0.5'>
-            {' '}
+          <span className='text-body font-medium text-red-800 border border-red-800 rounded-xl px-2 py-0.5'>
             {t('problems.problem_badge')}
           </span>
           <h2 className='text-h2 text-black'>{t('problems.title')}</h2>
@@ -53,7 +52,7 @@ export function Problems() {
                 className={`rounded-md border border-neutral-200 bg-white px-6 py-8 ${rotations[index]}`}
               >
                 <div className='flex flex-col items-start gap-2'>
-                  <Icon className='size-6 text-neutral-600' />
+                  <Icon className='size-6 text-red-800' />
                   <h3 className='text-h3 font-bold text-black'>
                     {problem.title}
                   </h3>

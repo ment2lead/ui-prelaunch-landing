@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'outline' | 'disabled';
+type ButtonVariant = 'primary' | 'brand' | 'inverse' | 'outline' | 'disabled';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
@@ -10,6 +10,8 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-black text-white hover:bg-neutral-800',
+  brand: 'bg-[#06737c] text-white hover:bg-[#055e66]',
+  inverse: 'bg-white text-[#06737c] hover:bg-neutral-50',
   outline:
     'border border-neutral-300 bg-white text-black hover:border-neutral-400',
   disabled:

@@ -8,7 +8,13 @@ export type Locale = 'en' | 'uk';
 export const locales: Locale[] = ['en', 'uk'];
 
 export function getLocaleFromPath(pathname: string): Locale {
-  return pathname.startsWith('/uk') ? 'uk' : 'en';
+  const base = import.meta.env.BASE_URL;
+  const path =
+    base !== '/' && pathname.startsWith(base)
+      ? pathname.slice(base.length - 1)
+      : pathname;
+
+  return path.startsWith('/uk') ? 'uk' : 'en';
 }
 
 export async function setupI18n(locale: Locale) {

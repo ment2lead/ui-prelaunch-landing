@@ -3,7 +3,7 @@ import { Section } from '../ui/Section';
 import iryna from '../../assets/img/team/iryna.jpeg';
 // import olenaCeo from '../../assets/img/team/olena_ceo.jpeg';
 // import sergiyCeo from '../../assets/img/team/sergiy_ceo.jpeg';
-// import oksanaCeo from '../../assets/img/team/oksana_ceo.jpeg';
+import oksana from '../../assets/img/team/oksana.jpeg';
 import solomiia from '../../assets/img/team/solomiia.jpeg';
 
 type TeamMember = {
@@ -15,6 +15,7 @@ type TeamMember = {
 const imagesMap = {
   iryna,
   solomiia,
+  oksana,
 };
 
 export function Team() {

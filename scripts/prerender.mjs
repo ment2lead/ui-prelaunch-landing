@@ -8,6 +8,8 @@ const clientDir = path.join(root, 'dist/client');
 const serverEntry = path.join(root, 'dist/server/entry-server.js');
 
 const routes = ['/en', '/uk'];
+const basePath = process.env.BASE_PATH ?? '';
+const enUrl = basePath ? `${basePath}en` : '/en';
 
 async function prerender() {
   const template = fs.readFileSync(path.join(clientDir, 'index.html'), 'utf-8');
@@ -30,12 +32,12 @@ async function prerender() {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0;url=/en" />
-    <script>window.location.replace('/en')</script>
+    <meta http-equiv="refresh" content="0;url=${enUrl}" />
+    <script>window.location.replace('${enUrl}')</script>
     <title>Ment to Lead</title>
   </head>
   <body>
-    <p>Redirecting to <a href="/en">Ment to Lead</a>...</p>
+    <p>Redirecting to <a href="${enUrl}">Ment to Lead</a>...</p>
   </body>
 </html>`;
 
