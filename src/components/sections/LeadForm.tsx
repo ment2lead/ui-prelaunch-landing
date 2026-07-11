@@ -9,7 +9,7 @@ type FormErrors = {
   goal?: string;
 };
 
-type GoalOption = 'mentor' | 'learner' | '';
+type GoalOption = 'mentor' | 'learner' | 'both' | '';
 
 export function LeadForm() {
   const { t } = useTranslation();
