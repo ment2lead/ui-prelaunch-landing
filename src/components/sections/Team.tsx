@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Section } from '../ui/Section';
 import iryna from '../../assets/img/team/iryna.jpeg';
-// import olenaCeo from '../../assets/img/team/olena_ceo.jpeg';
-// import sergiyCeo from '../../assets/img/team/sergiy_ceo.jpeg';
+import olena from '../../assets/img/team/olena.jpeg';
+import sergiy from '../../assets/img/team/sergiy.jpeg';
 import oksana from '../../assets/img/team/oksana_800.jpeg';
 import solomiia from '../../assets/img/team/solomiia.jpeg';
 
@@ -14,6 +14,8 @@ type TeamMember = {
 
 const imagesMap = {
   iryna,
+  olena,
+  sergiy,
   solomiia,
   oksana,
 };
