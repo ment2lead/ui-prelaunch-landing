@@ -7,7 +7,7 @@
     "dev": "vite",
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.ssr.ts",
-    "build": "npm run build:client && npm run build:server && node scripts/prerender.mjs",
+    "build": "tsc --noEmit && npm run build:client && npm run build:server && node scripts/prerender.mjs",
     "preview": "vite preview --outDir dist/client"
   },
   "dependencies": {
