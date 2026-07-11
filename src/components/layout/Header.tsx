@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import type { Locale } from '../../i18n';
-import logo from '../../assets/img/logo.png';
 
 type HeaderProps = {
   locale: Locale;
@@ -45,7 +44,6 @@ export function Header({ locale }: HeaderProps) {
           <h1 className={pastHero ? 'text-[#06737c]' : 'text-white'}>
             {t('header.logo')}
           </h1>
-          {/* <img src={logo} alt='Ment to lead' className='h-[20px]' /> */}
         </a>
 
         <div className='flex items-center gap-6'>
