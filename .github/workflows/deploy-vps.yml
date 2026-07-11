@@ -1,0 +1,36 @@
+name: Deploy to VPS
+
+# Ships the apex build (base path "/") to the OVH VPS web root.
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: vps-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      # no GITHUB_PAGES env -> base path "/", the apex build for the VPS
+      - run: npm run build
+      - name: rsync dist/client to the VPS web root
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+          VPS_TARGET: ${{ vars.VPS_DEPLOY_TARGET }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          # dest is "." - relative to the rrsync jail root (/var/www/ment2lead); an absolute path would double it
+          rsync -avz --delete --exclude='_redirects' -e 'ssh -i ~/.ssh/id_deploy' dist/client/ "$VPS_TARGET:."
