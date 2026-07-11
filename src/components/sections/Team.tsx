@@ -3,7 +3,7 @@ import { Section } from '../ui/Section';
 import iryna from '../../assets/img/team/iryna.jpeg';
 // import olenaCeo from '../../assets/img/team/olena_ceo.jpeg';
 // import sergiyCeo from '../../assets/img/team/sergiy_ceo.jpeg';
-import oksana from '../../assets/img/team/oksana.jpeg';
+import oksana from '../../assets/img/team/oksana_800.jpeg';
 import solomiia from '../../assets/img/team/solomiia.jpeg';
 
 type TeamMember = {
