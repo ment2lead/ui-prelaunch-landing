@@ -34,10 +34,10 @@ async function prerender() {
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0;url=${enUrl}" />
     <script>window.location.replace('${enUrl}')</script>
-    <title>Ment to Lead</title>
+    <title>Ment2Lead</title>
   </head>
   <body>
-    <p>Redirecting to <a href="${enUrl}">Ment to Lead</a>...</p>
+    <p>Redirecting to <a href="${enUrl}">Ment2Lead</a>...</p>
   </body>
 </html>`;
 

@@ -1,6 +1,6 @@
-# Ment to Lead — Prelaunch Landing
+# Ment2Lead — Prelaunch Landing
 
-Static React landing page for Ment to Lead with English and Ukrainian locales.
+Static React landing page for Ment2Lead with English and Ukrainian locales.
 
 ## Stack
 
