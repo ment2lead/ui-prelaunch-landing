@@ -14,7 +14,8 @@ type FormErrors = {
 type RoleOption = 'mentee' | 'mentor' | 'both' | '';
 
 const roleValues = ['mentee', 'mentor', 'both'] as const;
-const scriptUrl = import.meta.env.VITE_GOOGLE_SCRIPT_URL as string | undefined;
+const scriptUrl =
+  'https://script.google.com/macros/s/AKfycby72sbBYkbd2c1D--35n0cbQcLJxP5VEaod7aytxT24XM1J6rgKwjbjb-CMBQ_CXNzR/exec';
 
 export function Contact() {
   const { t } = useTranslation();

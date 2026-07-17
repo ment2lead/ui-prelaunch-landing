@@ -12,9 +12,27 @@ export function Solutions() {
   return (
     <section
       id='solution'
-      className='glow-solution relative overflow-visible pt-20 pb-24 md:pt-28 md:pb-32'
+      className='relative overflow-visible pt-20 pb-24 md:pt-28 md:pb-32'
     >
-      <div aria-hidden='true' className='lightning-burst' />
+      <div aria-hidden='true' className='lightning-stage'>
+        <div className='lightning-halo' />
+        <svg
+          className='lightning-bolt'
+          viewBox='0 0 64 96'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            className='lightning-bolt-glow'
+            d='M36 2 L14 52 H32 L22 94 L54 38 H34 L36 2Z'
+          />
+          <path
+            className='lightning-bolt-core'
+            d='M36 2 L14 52 H32 L22 94 L54 38 H34 L36 2Z'
+          />
+        </svg>
+      </div>
+
       <Container className='relative z-10'>
         <div className='mx-auto max-w-2xl pt-16 text-center md:pt-20'>
           <h2 className='text-4xl font-bold text-white md:text-5xl'>

@@ -11,7 +11,7 @@ export function Product() {
   return (
     <section
       id='product'
-      className='glow-purple relative overflow-visible py-24 md:py-32'
+      className='relative overflow-visible py-24 md:py-32'
     >
       <Container className='relative z-10'>
         <div className='mx-auto max-w-2xl text-center'>

@@ -10,7 +10,6 @@
 
   --night-900: #0a1622;
   --night-850: #0b1a2a;
-  --teal-deep: #0e2a2f;
 }
 
 @layer base {
@@ -48,64 +47,93 @@
     );
   }
 
+  /* Lighter purple through Problems, then brand blend down the page */
   .body-canvas {
     background: linear-gradient(
       180deg,
-      #0a1622 0%,
-      #0b1a2a 8%,
-      #0a1622 16%,
-      #0c1f24 28%,
-      #0e2a2f 36%,
-      #0b1e26 44%,
-      #0a1622 52%,
-      #0b1524 62%,
-      #0a1622 72%,
-      #0b1524 82%,
-      #0a1622 92%,
+      #1e1438 0%,
+      #261850 10%,
+      #2e1a5c 18%,
+      #243068 28%,
+      #1a3a58 40%,
+      #0e4858 52%,
+      #123e50 60%,
+      #152a42 68%,
+      #0e3a4a 76%,
+      #122438 86%,
       #0a1622 100%
     );
   }
 
-  .glow-purple {
-    background-image: radial-gradient(
-      70% 60% at 50% 0%,
-      rgba(91, 36, 122, 0.18) 0%,
-      rgba(91, 36, 122, 0) 70%
-    );
+  /*
+    “We Light the Way” — shaft + bolt sign illuminating the title,
+    dissolving into the canvas (no hard section fill edge).
+  */
+  .lightning-stage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
   }
 
-  .glow-purple-wide {
-    background-image: radial-gradient(
-      80% 70% at 50% 40%,
-      rgba(91, 36, 122, 0.16) 0%,
-      rgba(91, 36, 122, 0) 70%
-    );
-  }
-
-  .glow-solution {
-    background-image: radial-gradient(
-      90% 55% at 50% 18%,
-      rgba(26, 206, 223, 0.14) 0%,
-      rgba(14, 42, 47, 0.35) 40%,
+  .lightning-halo {
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    width: min(900px, 110vw);
+    height: 280px;
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse 70% 55% at 50% 45%,
+      rgba(164, 233, 240, 0.32) 0%,
+      rgba(26, 206, 223, 0.12) 42%,
       transparent 72%
     );
+    animation: lightningHalo 5.5s ease-in-out infinite;
   }
 
+  .lightning-bolt {
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    width: min(56px, 12vw);
+    height: auto;
+    aspect-ratio: 64 / 96;
+    transform: translateX(-50%);
+    overflow: visible;
+  }
+
+  .lightning-bolt-glow {
+    fill: rgba(26, 206, 223, 0.55);
+    filter: blur(12px);
+    animation: lightningFlash 5.5s ease-in-out infinite;
+  }
+
+  .lightning-bolt-core {
+    fill: #f2fcff;
+    filter: drop-shadow(0 0 8px rgba(164, 233, 240, 0.95))
+      drop-shadow(0 0 22px rgba(26, 206, 223, 0.7));
+    animation: lightningFlash 5.5s ease-in-out infinite;
+  }
+
+  /* Product gradient stays; fade bridges into lighter Problems purple */
   .hero-fade-bottom::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 280px;
+    height: 360px;
     pointer-events: none;
     z-index: 2;
     background: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(10, 22, 34, 0.2) 30%,
-      rgba(10, 22, 34, 0.55) 60%,
-      #0a1622 100%
+      rgba(35, 111, 158, 0.1) 22%,
+      rgba(46, 26, 80, 0.4) 48%,
+      rgba(30, 20, 56, 0.78) 72%,
+      #1e1438 100%
     );
   }
 
@@ -163,46 +191,9 @@
   .moon-deck {
     border-radius: 9999px;
     box-shadow:
-      inset 480px 0 0 0 #0a1622,
+      inset 480px 0 0 0 #241850,
       0 0 80px rgba(164, 233, 240, 0.2);
     animation: moonShine 4s ease-in-out infinite;
-  }
-
-  /*
-    Lightning sits on the section, not the title box — soft radials + mask
-    so the wash dissolves into the canvas with no hard rectangle edge.
-  */
-  .lightning-burst {
-    position: absolute;
-    left: 50%;
-    top: 1.5rem;
-    z-index: 0;
-    width: min(920px, 120vw);
-    height: 420px;
-    transform: translateX(-50%);
-    pointer-events: none;
-    background:
-      radial-gradient(
-        ellipse 42% 38% at 50% 42%,
-        rgba(164, 233, 240, 0.42) 0%,
-        rgba(26, 206, 223, 0.18) 34%,
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 16% 22% at 50% 46%,
-        rgba(255, 255, 255, 0.28) 0%,
-        transparent 62%
-      );
-    -webkit-mask-image: radial-gradient(
-      ellipse 58% 52% at 50% 44%,
-      #000 12%,
-      transparent 78%
-    );
-    mask-image: radial-gradient(
-      ellipse 58% 52% at 50% 44%,
-      #000 12%,
-      transparent 78%
-    );
   }
 
   .moon-glow {
@@ -234,6 +225,80 @@
     );
     will-change: transform;
   }
+
+  /* B: crescent over full disk — crossfade during merge */
+  .moon-phase-stack {
+    position: relative;
+    filter: drop-shadow(0 0 18px rgba(164, 233, 240, 0.4));
+  }
+
+  .moon-phase-stack .moon-layer-full,
+  .moon-phase-stack .moon-layer-crescent {
+    position: absolute;
+    inset: 0;
+    will-change: opacity;
+  }
+
+  .moon-phase-stack .moon-layer-full {
+    opacity: 0;
+  }
+
+  .moon-phase-stack .moon-layer-crescent {
+    -webkit-mask-image: radial-gradient(
+      circle closest-side at var(--moon-punch-x) 45%,
+      transparent 110%,
+      #000 113%
+    );
+    mask-image: radial-gradient(
+      circle closest-side at var(--moon-punch-x) 45%,
+      transparent 110%,
+      #000 113%
+    );
+  }
+
+  .moon-phase-mentee {
+    --moon-punch-x: 57%;
+    transform: rotate(348deg);
+  }
+
+  .moon-phase-specialist {
+    box-shadow: 0 0 60px rgba(164, 233, 240, 0.55);
+  }
+
+  .moon-phase-mentor {
+    --moon-punch-x: 43%;
+    transform: rotate(12deg);
+  }
+
+  @media (min-width: 768px) {
+    .moon-phase-mentee {
+      animation: menteeMerge 12s ease-in-out infinite;
+    }
+
+    .moon-phase-mentee .moon-layer-full {
+      animation: moonCrossfadeFull 12s ease-in-out infinite;
+    }
+
+    .moon-phase-mentee .moon-layer-crescent {
+      animation: moonCrossfadeCrescent 12s ease-in-out infinite;
+    }
+
+    .moon-phase-specialist {
+      animation: specialistForm 12s ease-in-out infinite;
+    }
+
+    .moon-phase-mentor {
+      animation: mentorMerge 12s ease-in-out infinite;
+    }
+
+    .moon-phase-mentor .moon-layer-full {
+      animation: moonCrossfadeFull 12s ease-in-out infinite;
+    }
+
+    .moon-phase-mentor .moon-layer-crescent {
+      animation: moonCrossfadeCrescent 12s ease-in-out infinite;
+    }
+  }
 }
 
 @keyframes twinkle {
@@ -243,6 +308,51 @@
   }
   50% {
     opacity: 1;
+  }
+}
+
+@keyframes lightningShaft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  42% {
+    opacity: 0.85;
+  }
+  48% {
+    opacity: 1;
+  }
+  56% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes lightningHalo {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translateX(-50%) scale(0.96);
+  }
+  45% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.04);
+  }
+  55% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes lightningFlash {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.85;
   }
 }
 
@@ -260,12 +370,12 @@
   0%,
   100% {
     box-shadow:
-      inset 480px 0 0 0 #0a1622,
+      inset 480px 0 0 0 #241850,
       0 0 60px 6px rgba(164, 233, 240, 0.18);
   }
   50% {
     box-shadow:
-      inset 480px 0 0 0 #0a1622,
+      inset 480px 0 0 0 #241850,
       0 0 120px 28px rgba(164, 233, 240, 0.55);
   }
 }
@@ -283,54 +393,72 @@
 @keyframes menteeMerge {
   0%,
   18% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1) rotate(348deg);
     opacity: 1;
-    box-shadow:
-      inset 150px 0 0 0 #160a2e,
-      0 0 60px rgba(164, 233, 240, 0.25);
+    filter: drop-shadow(0 0 18px rgba(164, 233, 240, 0.4));
   }
   46%,
   54% {
-    transform: translateX(210px) scale(0.5);
+    transform: translateX(210px) scale(0.5) rotate(348deg);
     opacity: 0;
-    box-shadow:
-      inset 0 0 0 0 #160a2e,
-      0 0 70px rgba(164, 233, 240, 0.8);
+    filter: drop-shadow(0 0 40px rgba(164, 233, 240, 0.85));
   }
   82%,
   100% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1) rotate(348deg);
     opacity: 1;
-    box-shadow:
-      inset 150px 0 0 0 #160a2e,
-      0 0 60px rgba(164, 233, 240, 0.25);
+    filter: drop-shadow(0 0 18px rgba(164, 233, 240, 0.4));
   }
 }
 
 @keyframes mentorMerge {
   0%,
   18% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1) rotate(12deg);
     opacity: 1;
-    box-shadow:
-      inset -150px 0 0 0 #160a2e,
-      0 0 60px rgba(164, 233, 240, 0.25);
+    filter: drop-shadow(0 0 18px rgba(164, 233, 240, 0.4));
   }
   46%,
   54% {
-    transform: translateX(-210px) scale(0.5);
+    transform: translateX(-210px) scale(0.5) rotate(12deg);
     opacity: 0;
-    box-shadow:
-      inset 0 0 0 0 #160a2e,
-      0 0 70px rgba(164, 233, 240, 0.8);
+    filter: drop-shadow(0 0 40px rgba(164, 233, 240, 0.85));
   }
   82%,
   100% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1) rotate(12deg);
     opacity: 1;
-    box-shadow:
-      inset -150px 0 0 0 #160a2e,
-      0 0 60px rgba(164, 233, 240, 0.25);
+    filter: drop-shadow(0 0 18px rgba(164, 233, 240, 0.4));
+  }
+}
+
+@keyframes moonCrossfadeCrescent {
+  0%,
+  18% {
+    opacity: 1;
+  }
+  40%,
+  60% {
+    opacity: 0;
+  }
+  82%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moonCrossfadeFull {
+  0%,
+  18% {
+    opacity: 0;
+  }
+  40%,
+  60% {
+    opacity: 1;
+  }
+  82%,
+  100% {
+    opacity: 0;
   }
 }
 
@@ -342,15 +470,15 @@
     box-shadow: 0 0 0 0 rgba(164, 233, 240, 0);
   }
   48% {
-    transform: scale(1.22);
+    transform: scale(1.12);
     opacity: 1;
-    box-shadow: 0 0 150px 42px rgba(164, 233, 240, 1);
+    box-shadow: 0 0 56px 10px rgba(164, 233, 240, 0.85);
   }
   58%,
   68% {
     transform: scale(1);
     opacity: 1;
-    box-shadow: 0 0 90px rgba(164, 233, 240, 0.6);
+    box-shadow: 0 0 48px rgba(164, 233, 240, 0.55);
   }
   100% {
     transform: scale(0.35);
@@ -362,10 +490,18 @@
 @media (prefers-reduced-motion: reduce) {
   .stars::before,
   .float,
-  .moon-deck {
+  .moon-deck,
+  .lightning-halo,
+  .lightning-bolt-glow,
+  .lightning-bolt-core {
     animation: none;
   }
-  .moon {
+  .moon,
+  .moon-phase-stack {
+    animation: none !important;
+  }
+  .moon-layer-full,
+  .moon-layer-crescent {
     animation: none !important;
   }
 }

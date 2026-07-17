@@ -1,21 +1,11 @@
-import type { CSSProperties } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container } from '../ui/Container';
 
-const moonStyles: CSSProperties[] = [
-  {
-    boxShadow: 'inset 150px 0 0 0 #160a2e, 0 0 60px rgba(164,233,240,0.25)',
-    animation: 'menteeMerge 12s ease-in-out infinite',
-  },
-  {
-    boxShadow: '0 0 90px rgba(164,233,240,0.55)',
-    animation: 'specialistForm 12s ease-in-out infinite',
-  },
-  {
-    boxShadow: 'inset -150px 0 0 0 #160a2e, 0 0 60px rgba(164,233,240,0.25)',
-    animation: 'mentorMerge 12s ease-in-out infinite',
-  },
-];
+const crescentPhases = [
+  { stack: 'moon-phase-mentee', punch: true },
+  { stack: 'moon-phase-specialist', punch: false },
+  { stack: 'moon-phase-mentor', punch: true },
+] as const;
 
 export function GrowTogether() {
   const { t } = useTranslation();
@@ -25,13 +15,10 @@ export function GrowTogether() {
   }>;
 
   return (
-    <section
-      id='audience'
-      className='glow-purple relative overflow-visible py-24 md:py-32'
-    >
+    <section id='audience' className='relative overflow-visible py-24 md:py-32'>
       <Container className='relative z-10'>
         <div className='max-w-2xl'>
-          <h2 className='text-4xl font-bold text-white md:text-6xl'>
+          <h2 className='text-4xl font-bold text-white md:text-5xl'>
             {t('growTogether.title')}
           </h2>
           <p className='mt-5 text-lg leading-relaxed text-white/75'>
@@ -40,25 +27,37 @@ export function GrowTogether() {
         </div>
 
         <div className='mt-20 grid gap-14 md:grid-cols-3'>
-          {phases.map((phase, index) => (
-            <div
-              key={phase.role}
-              className='flex flex-col items-center text-center'
-            >
-              <div className='flex h-[210px] items-center justify-center'>
-                <div
-                  className='moon size-[150px] md:size-[190px]'
-                  style={moonStyles[index]}
-                />
+          {phases.map((phase, index) => {
+            const moon = crescentPhases[index];
+
+            return (
+              <div
+                key={phase.role}
+                className='flex flex-col items-center text-center'
+              >
+                <div className='flex h-[150px] items-center justify-center'>
+                  {moon.punch ? (
+                    <div
+                      className={`moon-phase-stack size-[110px] md:size-[140px] ${moon.stack}`}
+                    >
+                      <span className='moon moon-layer-full' />
+                      <span className='moon moon-layer-crescent' />
+                    </div>
+                  ) : (
+                    <div
+                      className={`moon size-[110px] md:size-[140px] ${moon.stack}`}
+                    />
+                  )}
+                </div>
+                <h3 className='mt-8 text-3xl font-extrabold text-white'>
+                  {phase.role}
+                </h3>
+                <p className='text-body mt-3 max-w-[360px] leading-relaxed text-white/80'>
+                  {phase.description}
+                </p>
               </div>
-              <h3 className='mt-8 text-3xl font-extrabold text-white'>
-                {phase.role}
-              </h3>
-              <p className='text-body mt-3 max-w-[360px] leading-relaxed text-white/80'>
-                {phase.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

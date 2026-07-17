@@ -24,10 +24,7 @@ export function Team() {
   }>;
 
   return (
-    <section
-      id='team'
-      className='glow-purple-wide relative overflow-visible py-24 md:py-32'
-    >
+    <section id='team' className='relative overflow-visible py-24 md:py-32'>
       <Container className='relative z-10'>
         <div className='mx-auto max-w-2xl text-center'>
           <h2 className='text-4xl font-bold text-white md:text-5xl'>
@@ -44,7 +41,7 @@ export function Team() {
               <img
                 src={photos[member.avatar]}
                 alt={member.name}
-                className='size-[92px] rounded-full bg-[#0e1e2e] object-cover ring-2 ring-brand-cyan/40'
+                className='size-[92px] rounded-full bg-[#d6eef2] object-cover ring-2 ring-brand-cyan/40'
               />
               <p className='mt-4 text-base font-bold text-white'>
                 {member.name}

@@ -29,7 +29,7 @@ export function Button({
     <button
       type={type}
       disabled={disabled}
-      className={`inline-flex items-center justify-center rounded-full px-7 py-3 text-[0.95rem] font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:border disabled:border-white/15 disabled:bg-white/5 disabled:text-white/40 disabled:shadow-none ${variantClasses[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
+      className={`cursor-pointer inline-flex items-center justify-center rounded-full px-7 py-3 text-[0.95rem] font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:border disabled:border-white/15 disabled:bg-white/5 disabled:text-white/40 disabled:shadow-none ${variantClasses[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
       {...props}
     >
       {children}

@@ -15,7 +15,7 @@ export function Problems() {
     <section id='problem' className='relative overflow-visible py-24 md:py-32'>
       <div
         aria-hidden='true'
-        className='moon-deck pointer-events-none absolute top-1/2 right-[-40px] z-0 hidden size-[420px] -translate-y-1/2 md:block lg:right-[-20px] lg:size-[520px]'
+        className='moon-deck pointer-events-none absolute top-1/2 right-[-40px] z-2 hidden size-[420px] -translate-y-1/2 md:block lg:right-[-20px] lg:size-[520px]'
       />
 
       <Container className='relative z-10'>
