@@ -1,6 +1,6 @@
 # Ment2Lead — Prelaunch Landing
 
-Static React landing page for Ment2Lead with English and Ukrainian locales.
+Static React landing page for Ment2Lead.
 
 ## Stack
 
@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-Visit `/en` or `/uk`.
+Open the root URL (`/`).
 
 ## Build
 
