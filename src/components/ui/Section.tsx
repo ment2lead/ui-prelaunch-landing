@@ -4,21 +4,22 @@ import { Container } from './Container';
 type SectionProps = {
   children: ReactNode;
   id?: string;
-  variant?: 'white' | 'muted';
   className?: string;
+  containerClassName?: string;
 };
 
 export function Section({
   children,
   id,
-  variant = 'white',
   className = '',
+  containerClassName = '',
 }: SectionProps) {
-  const bg = variant === 'muted' ? 'bg-neutral-50' : 'bg-white';
-
   return (
-    <section id={id} className={`${bg} py-32 ${className}`}>
-      <Container>{children}</Container>
+    <section
+      id={id}
+      className={`relative overflow-hidden py-24 md:py-32 ${className}`}
+    >
+      <Container className={containerClassName}>{children}</Container>
     </section>
   );
 }

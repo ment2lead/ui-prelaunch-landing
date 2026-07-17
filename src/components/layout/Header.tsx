@@ -2,102 +2,65 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
-import type { Locale } from '../../i18n';
+import { scrollToId } from '../ui/scrollToId';
+import logo from '../../assets/img/logo-ment2lead-white.png';
 
-type HeaderProps = {
-  locale: Locale;
-};
+const navKeys = ['solution', 'product', 'pricing', 'team'] as const;
 
-export function Header({ locale }: HeaderProps) {
+export function Header() {
   const { t } = useTranslation();
-  const [pastHero, setPastHero] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById('hero');
-    if (!hero) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setPastHero(!entry.isIntersecting),
-      { threshold: 0, rootMargin: '-80px 0px 0px 0px' },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const navLinks = [
-    { href: '#features', label: t('header.nav.features') },
-    { href: '#team', label: t('header.nav.team') },
-    { href: '#pricing', label: t('header.nav.pricing') },
-  ];
 
   return (
     <header
-      className={`sticky top-0 z-50 h-20 border-b transition-colors duration-300 ${
-        pastHero
-          ? 'border-[#06737c]/20 bg-white'
-          : 'border-white/20 bg-[#06737c]'
+      className={`fixed top-0 right-0 left-0 z-50 h-[72px] border-b transition-colors duration-300 ${
+        scrolled
+          ? 'border-white/10 bg-night-900/90 backdrop-blur-md'
+          : 'border-transparent bg-transparent'
       }`}
     >
       <Container className='flex h-full items-center justify-between'>
-        <a href='#' className='text-body font-semibold'>
-          <h1 className={pastHero ? 'text-[#06737c]' : 'text-white'}>
-            {t('header.logo')}
-          </h1>
+        <a
+          href='#hero'
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToId('hero');
+          }}
+          className='flex items-center'
+        >
+          <img
+            src={logo}
+            alt={t('header.logo')}
+            className='h-8 w-auto object-contain'
+          />
         </a>
 
-        <div className='flex items-center gap-6'>
-          <nav className='flex items-center gap-8'>
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-body transition-colors ${
-                  pastHero
-                    ? 'text-[#06737c]/80 hover:text-[#06737c]'
-                    : 'text-white/80 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <div className='flex items-center gap-2 text-caption'>
-            {(['en', 'uk'] as Locale[]).map((lang, index) => (
-              <span key={lang} className='flex items-center gap-2'>
-                {index > 0 && (
-                  <span
-                    className={pastHero ? 'text-[#06737c]/30' : 'text-white/30'}
-                  >
-                    |
-                  </span>
-                )}
-                <a
-                  href={`${import.meta.env.BASE_URL}${lang}`}
-                  className={
-                    locale === lang
-                      ? `font-semibold underline underline-offset-4 ${pastHero ? 'text-[#06737c]' : 'text-white'}`
-                      : pastHero
-                        ? 'text-[#06737c]/70 hover:text-[#06737c]'
-                        : 'text-white/70 hover:text-white'
-                  }
-                >
-                  {lang.toUpperCase()}
-                </a>
-              </span>
-            ))}
-          </div>
-          <Button
-            variant='primary'
-            onClick={() =>
-              document
-                .getElementById('early-access')
-                ?.scrollIntoView({ behavior: 'smooth' })
-            }
-          >
-            {t('hero.cta')}
-          </Button>
-        </div>
+        <nav className='hidden items-center gap-9 md:flex'>
+          {navKeys.map((key) => (
+            <a
+              key={key}
+              href={`#${key}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToId(key);
+              }}
+              className='text-[0.95rem] text-white/70 transition-colors hover:text-white'
+            >
+              {t(`header.nav.${key}`)}
+            </a>
+          ))}
+        </nav>
+
+        <Button variant='cyan' onClick={() => scrollToId('early-access')}>
+          {t('header.cta')}
+        </Button>
       </Container>
     </header>
   );

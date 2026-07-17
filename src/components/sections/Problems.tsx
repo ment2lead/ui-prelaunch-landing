@@ -1,70 +1,59 @@
 import { useTranslation } from 'react-i18next';
-import { Section } from '../ui/Section';
-import {
-  FaQuestionCircle,
-  FaUserFriends,
-  FaCompass,
-  FaUserPlus,
-} from 'react-icons/fa';
+import { FaCompass, FaQuestionCircle, FaUserFriends } from 'react-icons/fa';
+import { Container } from '../ui/Container';
 
-type ProblemItem = {
-  title: string;
-  description: string;
-};
-
-const IconMap = {
-  1: FaQuestionCircle,
-  2: FaUserFriends,
-  3: FaCompass,
-  4: FaUserPlus,
-} as const;
+const icons = [FaQuestionCircle, FaUserFriends, FaCompass];
 
 export function Problems() {
   const { t } = useTranslation();
-  const problems = t('problems.items', {
-    returnObjects: true,
-  }) as ProblemItem[];
+  const items = t('problems.items', { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>;
 
   return (
-    <Section variant='muted'>
-      <div className='grid grid-cols-12 gap-24 items-center'>
-        <div className='col-span-7 flex flex-col items-start gap-2'>
-          <span className='text-body font-medium text-red-800 border border-red-800 rounded-xl px-2 py-0.5'>
-            {t('problems.problem_badge')}
-          </span>
-          <h2 className='text-h2 text-black'>{t('problems.title')}</h2>
-          <p className='text-body text-neutral-600'>
-            {t('problems.description')}
-          </p>
-        </div>
+    <section id='problem' className='relative overflow-visible py-24 md:py-32'>
+      <div
+        aria-hidden='true'
+        className='moon-deck pointer-events-none absolute top-1/2 right-[-40px] z-0 hidden size-[420px] -translate-y-1/2 md:block lg:right-[-20px] lg:size-[520px]'
+      />
 
-        <div className='col-span-5 flex flex-col'>
-          {problems.map((problem, index) => {
-            const Icon = IconMap[(index + 1) as keyof typeof IconMap];
-            const rotations = [
-              'rotate-[-2deg]',
-              'rotate-[1deg] translate-x-10',
-              'rotate-[-2deg]',
-            ];
-            return (
-              <div
-                key={problem.title}
-                className={`rounded-md border border-neutral-200 bg-white px-6 py-8 ${rotations[index]}`}
-              >
-                <div className='flex flex-col items-start gap-2'>
-                  <Icon className='size-6 text-red-800' />
-                  <h3 className='text-h3 font-bold text-black'>
-                    {problem.title}
-                  </h3>
-                  <p className='text-body text-neutral-600'>
-                    {problem.description}
-                  </p>
+      <Container className='relative z-10'>
+        <div className='grid gap-12 lg:grid-cols-12 lg:items-center'>
+          <div className='lg:col-span-5'>
+            <h2 className='text-4xl font-bold text-white md:text-5xl'>
+              {t('problems.title')}
+            </h2>
+            <p className='mt-6 max-w-md text-lg leading-relaxed text-white/60'>
+              {t('problems.description')}
+            </p>
+          </div>
+
+          <div className='flex flex-col gap-5 lg:col-span-7'>
+            {items.map((item, index) => {
+              const Icon = icons[index] ?? FaQuestionCircle;
+              return (
+                <div
+                  key={item.title}
+                  className='rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-colors hover:border-brand-cyan/40'
+                >
+                  <div className='flex items-start gap-5'>
+                    <Icon className='mt-1 size-7 shrink-0 text-brand-cyan' />
+                    <div>
+                      <h3 className='text-xl font-semibold text-white'>
+                        {item.title}
+                      </h3>
+                      <p className='text-body mt-2 leading-relaxed text-white/60'>
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </Section>
+      </Container>
+    </section>
   );
 }

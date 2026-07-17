@@ -6,18 +6,9 @@ import uk from './resources/uk.json';
 export type Locale = 'en' | 'uk';
 
 export const locales: Locale[] = ['en', 'uk'];
+export const defaultLocale: Locale = 'en';
 
-export function getLocaleFromPath(pathname: string): Locale {
-  const base = import.meta.env.BASE_URL;
-  const path =
-    base !== '/' && pathname.startsWith(base)
-      ? pathname.slice(base.length - 1)
-      : pathname;
-
-  return path.startsWith('/uk') ? 'uk' : 'en';
-}
-
-export async function setupI18n(locale: Locale) {
+export async function setupI18n(locale: Locale = defaultLocale) {
   if (i18n.isInitialized && i18n.language === locale) {
     return i18n;
   }

@@ -1,60 +1,49 @@
 import { useTranslation } from 'react-i18next';
-import { Section } from '../ui/Section';
-import {
-  FaBookOpen,
-  FaChalkboardTeacher,
-  FaGem,
-  FaUsers,
-} from 'react-icons/fa';
-
-type ProblemItem = {
-  title: string;
-  description: string;
-};
-
-const IconMap = {
-  1: FaChalkboardTeacher,
-  2: FaUsers,
-  3: FaBookOpen,
-  4: FaGem,
-} as const;
+import { Container } from '../ui/Container';
 
 export function Solutions() {
   const { t } = useTranslation();
-  const solutions = t('solutions.items', {
-    returnObjects: true,
-  }) as ProblemItem[];
+  const items = t('solutions.items', { returnObjects: true }) as Array<{
+    number: string;
+    title: string;
+    description: string;
+  }>;
 
   return (
-    <Section variant='white'>
-      <div className='flex flex-col items-center'>
-        <div className='mb-32 text-center'>
-          <h2 className='mb-2 text-h2 text-black'>{t('solutions.title')}</h2>
-          <p className='text-body text-neutral-600'>
+    <section
+      id='solution'
+      className='glow-solution relative overflow-visible pt-20 pb-24 md:pt-28 md:pb-32'
+    >
+      <div aria-hidden='true' className='lightning-burst' />
+      <Container className='relative z-10'>
+        <div className='mx-auto max-w-2xl pt-16 text-center md:pt-20'>
+          <h2 className='text-4xl font-bold text-white md:text-5xl'>
+            {t('solutions.title')}
+          </h2>
+          <p className='mt-5 text-lg leading-relaxed text-white/65'>
             {t('solutions.description')}
           </p>
         </div>
 
-        <div className='grid w-full grid-cols-4 gap-6 '>
-          {solutions.map((solution, index) => {
-            const Icon = IconMap[(index + 1) as keyof typeof IconMap];
-
-            return (
-              <div
-                key={solution.title}
-                className='flex flex-col gap-2 items-center text-center '
-              >
-                <Icon className='size-10 text-teal-700' />
-
-                <h3 className='text-h3 font-bold'>{solution.title}</h3>
-                <p className=' text-body text-neutral-600'>
-                  {solution.description}
-                </p>
-              </div>
-            );
-          })}
+        <div className='mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+          {items.map((pillar) => (
+            <div
+              key={pillar.number}
+              className='group relative rounded-2xl border border-white/10 bg-white/[0.05] p-7 backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 hover:border-brand-cyan/50'
+            >
+              <span className='text-2xl font-bold text-brand-cyan'>
+                {pillar.number}
+              </span>
+              <h3 className='mt-4 text-lg font-semibold text-white'>
+                {pillar.title}
+              </h3>
+              <p className='text-body mt-3 leading-relaxed text-white/60'>
+                {pillar.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </div>
-    </Section>
+      </Container>
+    </section>
   );
 }

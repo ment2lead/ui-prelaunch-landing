@@ -1,22 +1,28 @@
 {
   "header": {
-    "logo": "Ment2Lead",
+    "logo": "MENT2LEAD",
     "nav": {
-      "features": "Features",
-      "team": "Team",
-      "pricing": "Pricing"
+      "solution": "Solution",
+      "product": "Product",
+      "pricing": "Pricing",
+      "team": "Team"
     },
-    "becomeMentor": "Become a Mentor"
-  },
-  "hero": {
-    "title": "New to leadership? You don't have to figure it out alone.",
-    "subtitle": "Ment2Lead gives aspiring and new leaders the guidance, community, and self-awareness tools they need to grow with confidence.",
     "cta": "Join as Early Bird"
   },
+  "hero": {
+    "label": "Collaborative mentorship ecosystem",
+    "titleLine1": "New to leadership?",
+    "titleLine2": "You don't have to",
+    "titleAccent": "figure it out alone.",
+    "subtitle": "We pair emerging tech leaders with seasoned mentors, a judgment-free peer community, and reflection tools built for real growth. Because no one should have to lead alone.",
+    "ctaPrimary": "Join as Early Bird",
+    "ctaSecondary": "See the product",
+    "dashboardAlt": "Ment2Lead progress dashboard",
+    "mobileAlt": "Ment2Lead mobile app"
+  },
   "problems": {
-    "problem_badge": "The problem",
     "title": "New leaders often struggle with three things",
-    "description": "Leadership looks simple from the outside, but the reality is far more complex once you’re responsible for people, decisions, and outcomes.",
+    "description": "Leadership looks simple from the outside, but the reality is far more complex once you're responsible for people, decisions, and outcomes.",
     "items": [
       {
         "title": "Nobody taught me how to lead",
@@ -30,135 +36,173 @@
         "title": "Lack of a feedback",
         "description": "Without structured feedback and guidance, leadership growth becomes guesswork instead of intentional development."
       }
-    ],
-    "conclusion": "Ment2Lead gives aspiring and new leaders the guidance, community, and self-awareness tools they need to grow with confidence."
+    ]
   },
   "solutions": {
-    "title": "Four pillars of modern leadership growth",
-    "description": "Ment2Lead builds leadership through structured mentorship, peer support, continuous learning, and self-reflection.",
+    "title": "We Light the Way",
+    "description": "Four pillars that turn the isolating climb into a guided, shared journey.",
     "items": [
       {
-        "title": "Curated Mentorship",
-        "description": "Learn from experienced leaders who have already navigated similar challenges."
+        "number": "01",
+        "title": "Mentors Who've Been There",
+        "description": "Pairing with seasoned leaders who've navigated the same transition. Real guidance from people who get it."
       },
       {
-        "title": "Peer Community",
-        "description": "Connect with other leaders to share experiences and learn collaboratively."
+        "number": "02",
+        "title": "A Trusted Community",
+        "description": "A safe, judgment-free space to share wins, failures, and everything in between with peers on the same path."
       },
       {
-        "title": "Continuous Learning",
-        "description": "Access practical insights and leadership resources tailored to your current growth areas."
+        "number": "03",
+        "title": "Tools For Self-Leadership",
+        "description": "A guided journey of self-reflection to uncover your unique leadership style, strengths, and values."
       },
       {
-        "title": "Self-Discovery",
-        "description": "Understand your leadership style, strengths, and development path."
+        "number": "04",
+        "title": "Bite-Sized Growth",
+        "description": "Actionable insights on emotional intelligence, conflict resolution, and strategy for busy leaders — not another course to finish."
       }
     ]
   },
-  "features": {
-    "title": "Key Features",
-    "description": "Everything you need to support real leadership growth. A practical toolkit that connects people, knowledge, and guidance into one ecosystem.",
+  "growTogether": {
+    "title": "Grow Together",
+    "description": "Growth has phases, like the moon — from mentee, to confident leader, to mentor lighting the way for the next.",
+    "phases": [
+      {
+        "role": "Mentee",
+        "description": "A recently promoted team lead challenged by the transition from an individual contributor to a people manager."
+      },
+      {
+        "role": "Leader",
+        "description": "A confident, self-aware people manager building trust and leading with clarity and empathy."
+      },
+      {
+        "role": "Mentor",
+        "description": "A seasoned C-level manager interested in giving back and building a legacy by mentoring and supporting the next generation of leaders."
+      }
+    ]
+  },
+  "product": {
+    "title": "What We Built",
+    "description": "One cohesive product that turns leadership growth from a feeling into something you can see and act on.",
     "items": [
       {
-        "title": "Communication Tools",
-        "description": "Stay connected with mentors and mentees through built-in messaging, video calls, and session scheduling."
+        "title": "Personalized Leadership Journey",
+        "description": "A tailored path that starts with onboarding assessments and adapts as you grow — combining curated learning, mentorship sessions, and peer support in one experience."
       },
       {
-        "title": "Knowledge Base",
-        "description": "Access curated resources, playbooks, and templates to accelerate your leadership development journey."
+        "title": "Mentee-Mentor Matching System",
+        "description": "Smart matching that goes beyond surface-level pairing, factoring in leadership style, expectations, and cultural context to create relationships that actually click."
       },
       {
-        "title": "Smart Matching",
-        "description": "Get paired with the right mentor based on your goals, industry, and leadership style preferences."
+        "title": "Reflective Journal",
+        "description": "A dedicated space to build self-awareness over time — designed to help you notice even the smallest shifts in behavior and mindset."
+      },
+      {
+        "title": "Progress Dashboard",
+        "description": "A visual, measurable way to track growth across strengths, leadership style, and development areas — so progress isn't just felt, it's seen."
       }
     ]
   },
   "pricing": {
-    "title": "Pricing",
+    "title": "Start free, grow with us",
     "earlyBird": {
+      "badge": "Early Bird",
       "name": "FREE",
-      "subtitle": "Early Bird",
+      "subtitle": "Everything, while we launch.",
       "items": [
-        "Full platform access",
-        "Unlimited mentor sessions",
-        "Knowledge base access",
-        "Smart matching algorithm",
-        "Priority support"
+        "Reflective Journal",
+        "Progress Dashboard",
+        "Webinars access",
+        "Community"
       ],
       "cta": "Join as Early Bird"
     },
     "standard": {
-      "name": "STANDARD",
-      "subtitle": "In Development",
-      "comingSoon": "Coming Soon",
+      "badge": "Coming Soon",
+      "name": "Standard",
+      "subtitle": "In development.",
       "items": [
-        "Full platform access",
-        "Unlimited mentor sessions",
-        "Knowledge base access",
-        "Smart matching algorithm",
-        "Priority support"
+        "Reflective Journal",
+        "Progress Dashboard",
+        "Personalized Leadership Journey",
+        "Mentee-Mentor Matching System",
+        "Webinars access",
+        "Community"
       ],
       "cta": "Coming Soon"
     }
   },
   "team": {
-    "title": "Team",
+    "title": "Meet the Co-Founders",
     "members": [
       {
-        "name": "Iryna Lebedeva",
-        "role": "CEO & Co-founder",
+        "name": "Iryna Lebedyeva",
+        "role": "CEO",
+        "bio": "20+ years of business experience, ex-Mentorship Program Manager at WLUA.",
         "avatar": "iryna"
       },
       {
-        "name": "Olena Nikolaeva",
-        "role": "COO & Co-founder",
-        "avatar": "olena"
-      },
-      {
         "name": "Sergiy Borodych",
-        "role": "CTO & Co-founder",
+        "role": "CTO",
+        "bio": "20+ years in software and systems, designing secure and scalable solutions.",
         "avatar": "sergiy"
       },
       {
+        "name": "Olena Nikolaieva",
+        "role": "COO",
+        "bio": "6+ years in quality assurance, Specialisation Leader at Grid Dynamics.",
+        "avatar": "olena"
+      },
+      {
         "name": "Oksana Bezveniuk",
-        "role": "CMO & Co-founder",
+        "role": "CMO",
+        "bio": "7+ years in customer-facing roles, 1 year in startup marketing, ex-business founder.",
         "avatar": "oksana"
       },
       {
         "name": "Solomiia Rybchanska",
-        "role": "CDO & Co-founder",
+        "role": "CDO",
+        "bio": "6+ years in software engineering, building products that make a meaningful impact.",
         "avatar": "solomiia"
       }
     ]
   },
-  "form": {
-    "title": "Request Early Access",
+  "contact": {
+    "label": "Request Early Access",
+    "title": "Secure your spot",
     "name": "Name",
     "email": "Email",
-    "goal": "Your Goal",
-    "goalOptions": {
+    "role": "Your Role",
+    "rolePlaceholder": "Your Role",
+    "roleOptions": {
+      "mentee": "Mentee",
       "mentor": "Mentor",
-      "learner": "Learner",
       "both": "Both"
     },
     "submit": "Secure My Spot",
+    "submitting": "Submitting…",
     "success": "Thank you! Your spot has been secured.",
     "errors": {
       "nameRequired": "Name is required",
       "emailRequired": "Email is required",
       "emailInvalid": "Please enter a valid email",
-      "goalRequired": "Please select your goal"
+      "roleRequired": "Please select your role",
+      "consentRequired": "Please agree to the Privacy Policy and Terms of Use",
+      "submitFailed": "Something went wrong. Please try again."
     },
-    "privacy_policy": "Privacy Policy",
-    "terms_of_use": " Terms of Use",
-    "i_agree": "I agree to the"
+    "iAgree": "I agree to the",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
   },
   "footer": {
-    "contacts": "Contacts",
+    "title": "Rise with",
+    "titleAccent": "us.",
+    "subtitle": "No one should have to lead alone. Join the leaders growing together with Ment2Lead.",
     "email": "hello@ment2lead.com",
-    "phone": "+1 (555) 123-4567",
     "copyright": "© 2026 Ment2Lead. All rights reserved.",
-    "privacy": "Privacy",
-    "terms": "Terms"
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
   }
 }

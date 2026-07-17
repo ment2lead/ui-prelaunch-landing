@@ -1,32 +1,31 @@
-import type { Locale } from './i18n';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 import { Problems } from './components/sections/Problems';
-import { Features } from './components/sections/Features';
+import { Solutions } from './components/sections/Solutions';
+import { GrowTogether } from './components/sections/GrowTogether';
+import { Product } from './components/sections/Product';
 import { Pricing } from './components/sections/Pricing';
 import { Team } from './components/sections/Team';
-import { LeadForm } from './components/sections/LeadForm';
-import { Solutions } from './components/sections/Solutions';
+import { Contact } from './components/sections/Contact';
 
-type AppProps = {
-  locale: Locale;
-};
-
-export default function App({ locale }: AppProps) {
+export default function App() {
   return (
-    <>
-      <Header locale={locale} />
+    <div className='page'>
+      <Header />
       <main>
         <Hero />
-        <Problems />
-        <Solutions />
-        <Features />
-        <Pricing />
-        <Team />
-        <LeadForm />
+        <div className='body-canvas stars relative'>
+          <Problems />
+          <Solutions />
+          <GrowTogether />
+          <Product />
+          <Pricing />
+          <Team />
+          <Contact />
+          <Footer />
+        </div>
       </main>
-      <Footer />
-    </>
+    </div>
   );
 }

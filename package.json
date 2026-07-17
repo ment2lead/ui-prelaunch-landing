@@ -14,7 +14,6 @@
     "preview": "vite preview --outDir dist/client"
   },
   "dependencies": {
-    "@fontsource/inter": "^5.2.5",
     "i18next": "^25.2.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -28,6 +27,7 @@
     "@vitejs/plugin-react": "^4.5.2",
     "tailwindcss": "^4.1.8",
     "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-singlefile": "^2.3.3"
   }
 }
